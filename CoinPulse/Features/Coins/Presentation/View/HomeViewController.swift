@@ -53,7 +53,7 @@ final class HomeViewController: UITableViewController {
         isLoading = true
         
         Task {
-            let new = await viewModel.fetchData(limit: "\(pageSize)", offset: "\(offset)")
+            let new = try await viewModel.fetchData(limit: "\(pageSize)", offset: "\(offset)")
             await MainActor.run {
                 self.coins.append(contentsOf: new)
                 self.applySort()

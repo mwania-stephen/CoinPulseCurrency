@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
     
     private let coinsUseCases = CoinsUseCase(coinsRepository: CoinsRepository.shared)
     
-    func fetchData(limit: String, offset: String) async -> [Coin] {
+    func fetchData(limit: String, offset: String) async throws -> [Coin] {
         state = .isLoading
         
         let result = await coinsUseCases.executeGetCoins(limit: limit, offset: offset)
