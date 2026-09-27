@@ -1,3 +1,4 @@
+# CoinPulse Github Actions iOS CI
 name: iOS CI
 
 on:
@@ -20,21 +21,20 @@ jobs:
           sudo xcode-select -s /Applications/Xcode.app
           xcodebuild -version
 
-      - name: Build
+      - name: Build CoinPulse
         run: |
           xcodebuild \
-            -project LearningiOS.xcodeproj \
-            -scheme LearningiOS \
+            -project CoinPulse.xcodeproj \
+            -scheme CoinPulse \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 17' \
             build
 
-      - name: Run tests
+      - name: Run CoinPulse Tests
         run: |
           xcodebuild \
-            -project LearningiOS.xcodeproj \
-            -scheme LearningiOS \
+            -project CoinPulse.xcodeproj \
+            -scheme CoinPulse \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 17' \
             test
-```
